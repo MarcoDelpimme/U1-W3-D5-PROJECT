@@ -523,6 +523,22 @@ addTagTr();
 
 */
 
+function halfTree(height) {
+  const container = document.body;
+  let row = "";
+  for (let i = 1; i <= height; i++) {
+    for (let j = 1; j <= i; j++) {
+      row += "*";
+    }
+    const p = document.createElement("p");
+    p.innerText = row;
+    container.appendChild(p);
+    row = "";
+  }
+}
+
+halfTree(5);
+
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
 
@@ -543,10 +559,11 @@ function isItPrime(n) {
     return false;
   }
 
-  for (let i = 0; i < n; i++) {
+  for (let i = 2; i < Math.sqrt(n); i++) {
     if (n % i === 0) {
       return false;
     }
   }
   return true;
 }
+console.log(isItPrime(6));
